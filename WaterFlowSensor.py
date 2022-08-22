@@ -1,12 +1,11 @@
 #!/usr/bin/python
 import RPi.GPIO as GPIO
 import time, sys
-#import paho.mqtt.publish as publish
  
-FLOW_SENSOR_GPIO = 13
+FLOW_SENSOR_GPIO = 33
 #MQTT_SERVER = "192.168.1.155"
  
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 GPIO.setup(FLOW_SENSOR_GPIO, GPIO.IN, pull_up_down = GPIO.PUD_UP)
  
 global count
@@ -26,7 +25,7 @@ while True:
         start_counter = 0
         flow = (count / 7.5) # Pulse frequency (Hz) = 7.5Q, Q is flow rate in L/min.
         print("The flow is: %.3f Liter/min" % (flow))
-        #publish.single("/Garden.Pi/WaterFlow", flow, hostname=MQTT_SERVER)
+    
         count = 0
         time.sleep(5)
     except KeyboardInterrupt:

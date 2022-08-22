@@ -8,9 +8,9 @@ from time import sleep
 GPIO.setwarnings(False)
 #This means we will refer to the GPIO pins
 #by the number directly after the word GPIO. A good Pin Out Resource can be found here https://pinout.xyz/
-GPIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BOARD)
 #This sets up the GPIO 18 pin as an output pin
-GPIO.setup(18, GPIO.OUT)
+GPIO.setup(12, GPIO.OUT)
 
 while (True):    
     
@@ -22,4 +22,3 @@ while (True):
     GPIO.output(18, 0)
     #Wait 1 Seconds
     sleep(1)
-

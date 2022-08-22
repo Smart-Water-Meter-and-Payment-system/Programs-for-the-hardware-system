@@ -1,10 +1,10 @@
 import RPi.GPIO as GPIO
 import time
 
-channel = 21 # pin 40
+channel = 40
 
 # GPIO setup
-GPIO.setmode(GPIO.BCM) # sets numbering system to be used. Options are: BCM, BOARD
+GPIO.setmode(GPIO.BOARD) # sets numbering system to be used. Options are: BCM, BOARD
 GPIO.setup(channel, GPIO.OUT, initial=GPIO.HIGH)
 
 def motor_on(pin):
